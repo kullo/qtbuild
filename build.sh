@@ -24,7 +24,7 @@ INSTALL_ICU="$INSTALL_ROOT/icu"
 # sudo update-alternatives --config c++
 
 if [ ! -w "$INSTALL_ROOT" ] ; then
-    echo "Can not write to directory '$PREFIX_ROOT'"
+    echo "Can not write to directory '$INSTALL_ROOT'"
     exit 1
 fi
 
