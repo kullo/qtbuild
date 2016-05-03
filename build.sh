@@ -3,7 +3,7 @@ set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
 QT_VERSION="5.6.0"
-QT_SOURCE="$1"
+QT_SOURCEDIR="$1"
 CORES=$(nproc)
 
 BUILDDIR="/run/shm/qt-build-$USER"
@@ -12,7 +12,7 @@ INSTALL_SRC="$INSTALL_ROOT/src"
 INSTALL_ICU="$INSTALL_ROOT/icu"
 
 # sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk2.0-dev
-# sudo apt-get install clang-3.6 libc++-dev
+# sudo apt-get install -y clang-3.6 libc++-dev
 # sudo update-alternatives --install /usr/bin/cc      cc      /usr/bin/clang-3.6 100
 # sudo update-alternatives --install /usr/bin/c++     c++     /usr/bin/clang++-3.6 100
 # sudo update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.6 100
@@ -36,13 +36,6 @@ fi
     make install
 )
 
-# Install Qt sources
-if ! mkdir -p "$INSTALL_SRC"; then
-    echo "Could not create source directory '$INSTALL_SRC'"
-    exit 1
-fi
-rsync --archive --delete "$QT_SOURCE/" "$INSTALL_SRC"
-
 # Build Qt
 export LD_LIBRARY_PATH="$INSTALL_ICU/lib"
 
@@ -54,7 +47,7 @@ for MODE in debug release; do
 
     (
         cd "$BUILDDIR"
-        "$INSTALL_SRC/configure" \
+        "$QT_SOURCEDIR/configure" \
             -opensource \
             -confirm-license \
             -nomake examples \
@@ -95,3 +88,11 @@ for MODE in debug release; do
         make install
     )
 done
+
+# Install Qt sources
+if ! mkdir -p "$INSTALL_SRC"; then
+    echo "Could not create source directory '$INSTALL_SRC'"
+    exit 1
+fi
+echo "Copying Qt sources to '$INSTALL_SRC' ..."
+rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
