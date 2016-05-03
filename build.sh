@@ -96,3 +96,14 @@ if ! mkdir -p "$INSTALL_SRC"; then
 fi
 echo "Copying Qt sources to '$INSTALL_SRC' ..."
 time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
+
+# Export
+if which pigz > /dev/null; then
+    GZIP_COMPRESSOR=gzip
+else
+    GZIP_COMPRESSOR=pigz
+fi
+time tar -cv \
+    --use-compress-program=$GZIP_COMPRESSOR \
+    -f kullo-qt5.6.0-linux64.tar.gz \
+    "$INSTALL_ROOT"
