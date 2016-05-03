@@ -105,15 +105,10 @@ echo "Copying Qt sources to '$INSTALL_SRC' ..."
 time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
 
 # Export
-if which pigz > /dev/null; then
-    GZIP_COMPRESSOR=gzip
-else
-    GZIP_COMPRESSOR=pigz
-fi
 (
     cd "$INSTALL_PARENT"
     time tar -cv \
-        --use-compress-program=$GZIP_COMPRESSOR \
+        --use-compress-program="$(./get_gzip_compressor.sh)" \
         -f "$OUTFILE" \
         "$INSTALL_FOLDERNAME"
 )
