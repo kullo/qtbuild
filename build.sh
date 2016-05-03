@@ -14,7 +14,7 @@ INSTALL_PARENT="/opt"
 INSTALL_FOLDERNAME="qt-$QT_VERSION-linux-clang-libc++"
 INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
 INSTALL_SRC="$INSTALL_ROOT/src"
-INSTALL_ICU="$INSTALL_ROOT/icu"
+INSTALL_ICU="$WORKSPACE/icu-installation"
 
 # sudo apt-get install -y realpath pigz
 # sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk2.0-dev
@@ -105,9 +105,9 @@ for MODE in debug release; do
         cd "$DST"
         MAJOR=57
         MINOR=1
-        cp $INSTALL_ICU/lib/libicudata.so.$MAJOR.$MINOR .
-        cp $INSTALL_ICU/lib/libicui18n.so.$MAJOR.$MINOR .
-        cp $INSTALL_ICU/lib/libicuuc.so.$MAJOR.$MINOR   .
+        cp "$INSTALL_ICU/lib/libicudata.so.$MAJOR.$MINOR" .
+        cp "$INSTALL_ICU/lib/libicui18n.so.$MAJOR.$MINOR" .
+        cp "$INSTALL_ICU/lib/libicuuc.so.$MAJOR.$MINOR"   .
         ln -s libicudata.so.$MAJOR.$MINOR libicudata.so.$MAJOR
         ln -s libicui18n.so.$MAJOR.$MINOR libicui18n.so.$MAJOR
         ln -s libicuuc.so.$MAJOR.$MINOR   libicuuc.so.$MAJOR
