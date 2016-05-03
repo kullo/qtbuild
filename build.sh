@@ -3,7 +3,7 @@ set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
 QT_VERSION="5.6.0"
-QT_SOURCEDIR="$1"
+QT_SOURCEDIR=$(realpath "$1")
 CORES=$(nproc)
 
 BUILDDIR="/run/shm/qt-build-$USER"
