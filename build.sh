@@ -37,8 +37,6 @@ fi
 )
 
 # Build Qt
-export LD_LIBRARY_PATH="$INSTALL_ICU/lib"
-
 for MODE in debug release; do
     PREFIX="$INSTALL_ROOT/$MODE"
 
@@ -46,6 +44,7 @@ for MODE in debug release; do
     mkdir -p "$BUILDDIR"
 
     (
+        export LD_LIBRARY_PATH="$INSTALL_ICU/lib"
         cd "$BUILDDIR"
         "$QT_SOURCEDIR/configure" \
             -opensource \
