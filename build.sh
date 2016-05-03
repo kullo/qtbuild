@@ -31,7 +31,7 @@ if [ ! -w "$INSTALL_ROOT" ] ; then
     exit 1
 fi
 
-if [ ! mkdir -p "$(dirname "$OUTFILE")" ] ; then
+if ! mkdir -p "$(dirname "$OUTFILE")"; then
     echo "Could not create parent direcory for outfile '$OUTFILE'"
     exit 1
 fi
