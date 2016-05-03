@@ -2,6 +2,7 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
+GZIP_COMPRESSOR=$(./get_gzip_compressor.sh)
 QT_VERSION="5.6.0"
 QT_SOURCEDIR=$(realpath "$1")
 CORES=$(nproc)
@@ -108,7 +109,7 @@ time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
 (
     cd "$INSTALL_PARENT"
     time tar -cv \
-        --use-compress-program="$(./get_gzip_compressor.sh)" \
+        --use-compress-program="$GZIP_COMPRESSOR" \
         -f "$OUTFILE" \
         "$INSTALL_FOLDERNAME"
 )
