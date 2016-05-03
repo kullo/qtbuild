@@ -7,8 +7,9 @@ QT_VERSION="5.6.0"
 QT_SOURCEDIR=$(realpath "$1")
 CORES=$(nproc)
 
-BUILDDIR="/run/shm/qt-build-$USER"
-OUTFILE="/run/shm/out/kullo-qt5.6.0-linux64.tar.gz"
+WORKSPACE="/run/shm/workspace"
+BUILDDIR="$WORKSPACE/tmp/qt-build-$USER"
+OUTFILE="$WORKSPACE/out/kullo-qt5.6.0-linux64.tar.gz"
 INSTALL_PARENT="/opt"
 INSTALL_FOLDERNAME="qt-$QT_VERSION-linux-clang-libc++"
 INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
