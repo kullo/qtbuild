@@ -7,7 +7,10 @@ QT_SOURCEDIR="$1"
 CORES=$(nproc)
 
 BUILDDIR="/run/shm/qt-build-$USER"
-INSTALL_ROOT="/opt/qt-$QT_VERSION-linux-clang-libc++"
+OUTFILE="/run/shm/out/kullo-qt5.6.0-linux64.tar.gz"
+INSTALL_PARENT="/opt"
+INSTALL_FOLDERNAME="qt-$QT_VERSION-linux-clang-libc++"
+INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
 INSTALL_SRC="$INSTALL_ROOT/src"
 INSTALL_ICU="$INSTALL_ROOT/icu"
 
@@ -102,7 +105,10 @@ if which pigz > /dev/null; then
 else
     GZIP_COMPRESSOR=pigz
 fi
-time tar -cv \
-    --use-compress-program=$GZIP_COMPRESSOR \
-    -f kullo-qt5.6.0-linux64.tar.gz \
-    "$INSTALL_ROOT"
+(
+    cd "$INSTALL_PARENT"
+    time tar -cv \
+        --use-compress-program=$GZIP_COMPRESSOR \
+        -f "$OUTFILE" \
+        "$INSTALL_FOLDERNAME"
+)
