@@ -16,6 +16,7 @@ INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
 INSTALL_SRC="$INSTALL_ROOT/src"
 INSTALL_ICU="$INSTALL_ROOT/icu"
 
+# sudo apt-get install -y realpath pigz
 # sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk2.0-dev
 # sudo apt-get install -y clang-3.6 libc++-dev
 # sudo update-alternatives --install /usr/bin/cc      cc      /usr/bin/clang-3.6 100
