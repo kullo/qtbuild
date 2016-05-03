@@ -97,6 +97,21 @@ for MODE in debug release; do
         time CCACHE_DISABLE=1 make -j "$CORES"
         make install
     )
+
+    # Copy ICU libs into Qt installation
+    (
+        DST="$PREFIX/lib"
+        echo "Copy ICU libs into Qt installation '$DST' ..."
+        cd "$DST"
+        MAJOR=57
+        MINOR=1
+        cp $INSTALL_ICU/lib/libicudata.so.$MAJOR.$MINOR .
+        cp $INSTALL_ICU/lib/libicui18n.so.$MAJOR.$MINOR .
+        cp $INSTALL_ICU/lib/libicuuc.so.$MAJOR.$MINOR   .
+        ln -s libicudata.so.$MAJOR.$MINOR libicudata.so.$MAJOR
+        ln -s libicui18n.so.$MAJOR.$MINOR libicui18n.so.$MAJOR
+        ln -s libicuuc.so.$MAJOR.$MINOR   libicuuc.so.$MAJOR
+    )
 done
 
 # Install Qt sources
