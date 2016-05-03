@@ -115,3 +115,9 @@ time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
         -f "$OUTFILE" \
         "$INSTALL_FOLDERNAME"
 )
+
+# Next step
+echo "#####################"
+echo "# Use this command to download from build machine:"
+echo "# scp $USER@$(hostname).cloudapp.net:$OUTFILE ."
+echo "#####################"
