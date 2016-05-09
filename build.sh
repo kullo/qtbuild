@@ -54,6 +54,9 @@ if ! mkdir -p "$(dirname "$OUTFILE")"; then
     exit 1
 fi
 
+# Clear Qt installation dir
+rm -rf "${INSTALL_ROOT:?}/"*
+
 # Build ICU
 (
     cd icu/source
