@@ -102,7 +102,6 @@ for MODE in debug release; do
             -skip qtsensors \
             -skip qtserialbus \
             -skip qtserialport \
-            -skip qttools \
             -skip qtwayland \
             -skip qtwebchannel \
             -skip qtwebengine \
