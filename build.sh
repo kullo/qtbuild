@@ -2,7 +2,6 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
-GZIP_COMPRESSOR=$(./get_gzip_compressor.sh)
 QT_VERSION="5.6.0"
 QT_SOURCEDIR=$(realpath "$1")
 

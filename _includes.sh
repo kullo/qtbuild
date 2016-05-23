@@ -1,4 +1,5 @@
 CORES=$(nproc)
+GZIP_COMPRESSOR=$(./get_gzip_compressor.sh)
 
 PLATFORM=$(uname --hardware-platform)
 if [[ "$PLATFORM" == "i686" ]]; then
