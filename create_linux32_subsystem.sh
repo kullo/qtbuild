@@ -7,22 +7,22 @@ SCHROOT_ROOT="/mnt/chroot-trusty32"
 debootstrap --arch i386 trusty "$SCHROOT_ROOT" "http://de.archive.ubuntu.com/ubuntu/"
  
 (
-        echo "[trusty32]"
-        echo "description=Ubuntu 14.04 Trusty Tahr (32 Bit)"
-        echo "directory=/chroot-trusty32"
-        echo "users=kullo"    
-        echo "type=directory" 
-        echo "profile=desktop"
-        echo "personality=linux32"
-        echo "preserve-environment=true"
+    echo "[trusty32]"
+    echo "description=Ubuntu 14.04 Trusty Tahr (32 Bit)"
+    echo "directory=$SCHROOT_ROOT"
+    echo "users=kullo"
+    echo "type=directory"
+    echo "profile=desktop"
+    echo "personality=linux32"
+    echo "preserve-environment=true"
 ) > /etc/schroot/chroot.d/trusty32.conf
  
  
 (
-        echo "# Created by $0 on $(date)"
-        echo ""
-        echo "# User rules for kullo"
-        echo "kullo ALL=(ALL) NOPASSWD:ALL"
+    echo "# Created by $0 on $(date)"
+    echo ""
+    echo "# User rules for kullo"
+    echo "kullo ALL=(ALL) NOPASSWD:ALL"
 ) > "$SCHROOT_ROOT/etc/sudoers.d/90-admin-user-kullo"
 
 # APT sources list
