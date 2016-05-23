@@ -2,7 +2,9 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
-debootstrap --arch i386 trusty /chroot-trusty32 http://de.archive.ubuntu.com/ubuntu/     
+SCHROOT_ROOT="/mnt/chroot-trusty32"
+
+debootstrap --arch i386 trusty "$SCHROOT_ROOT" "http://de.archive.ubuntu.com/ubuntu/"
  
 (
         echo "[trusty32]"
@@ -21,10 +23,10 @@ debootstrap --arch i386 trusty /chroot-trusty32 http://de.archive.ubuntu.com/ubu
         echo ""
         echo "# User rules for kullo"
         echo "kullo ALL=(ALL) NOPASSWD:ALL"
-) > /chroot-trusty32/etc/sudoers.d/90-admin-user-kullo
+) > "$SCHROOT_ROOT/etc/sudoers.d/90-admin-user-kullo"
 
 # APT sources list
-cp /etc/apt/sources.list /chroot-trusty32/etc/apt/sources.list
+cp /etc/apt/sources.list "$SCHROOT_ROOT/etc/apt/sources.list"
 
 schroot -c trusty32 --directory / -- sudo apt-get update
 schroot -c trusty32 --directory / -- sudo apt-get upgrade -y
