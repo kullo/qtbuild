@@ -26,10 +26,12 @@ if ! mkdir -p "$(dirname "$OUTFILE")"; then
 fi
 
 # Clear Qt installation dir
+echo "Clearing Qt installation dir ..."
 rm -rf "${INSTALL_ROOT:?}/"*
 
 # Build ICU
 (
+    echo "Building ICU ..."
     cd icu/source
     CXXFLAGS="-stdlib=libc++" ./configure --prefix="$INSTALL_ICU"
     make -j "$CORES"
