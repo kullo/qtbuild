@@ -5,21 +5,11 @@ which shellcheck > /dev/null && shellcheck "$0"
 GZIP_COMPRESSOR=$(./get_gzip_compressor.sh)
 QT_VERSION="5.6.0"
 QT_SOURCEDIR=$(realpath "$1")
-CORES=$(nproc)
 
-PLATFORM=$(uname --hardware-platform)
-if [[ "$PLATFORM" == "i686" ]]; then
-    OS_NAME="linux32"
-elif [[ "$PLATFORM" == "x86_64" ]]; then
-    OS_NAME="linux64"
-else
-    echo "Unsupported platform: '$PLATFORM'."
-    exit 1
-fi
+source "./_includes.sh"
 
-WORKSPACE="/run/shm/workspace"
 BUILDDIR="$WORKSPACE/tmp/qt-build-$USER"
-OUTFILE="$WORKSPACE/out/kullo-qt5.6.0-$OS_NAME.tar.gz"
+OUTFILE="$OUTDIR/kullo-qt5.6.0-$OS_NAME.tar.gz"
 INSTALL_PARENT="/opt"
 INSTALL_FOLDERNAME="qt-$QT_VERSION-linux-clang-libc++"
 INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
