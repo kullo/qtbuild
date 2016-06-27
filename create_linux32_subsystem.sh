@@ -2,8 +2,7 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
-SCHROOT_ROOT="/run/shm/chroot-trusty32"
-mkdir "$SCHROOT_ROOT"
+SCHROOT_ROOT="/mnt/chroot-trusty32"
 
 debootstrap --arch i386 trusty "$SCHROOT_ROOT" "http://de.archive.ubuntu.com/ubuntu/"
  
