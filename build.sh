@@ -2,15 +2,15 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
-QT_VERSION="5.6.0"
+QT_VERSION="5.6.1-1"
 QT_SOURCEDIR=$(realpath "$1")
 
 source "./_includes.sh"
 
 BUILDDIR="$WORKSPACE/tmp/qt-build-$USER"
-OUTFILE="$OUTDIR/kullo-qt5.6.0-$OS_NAME.tar.gz"
+OUTFILE="$OUTDIR/kullo_qt${QT_VERSION}_${OS_NAME}.tar.gz"
 INSTALL_PARENT="/opt"
-INSTALL_FOLDERNAME="qt-$QT_VERSION-linux-clang-libc++"
+INSTALL_FOLDERNAME="qt-clang-libc++"
 INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
 INSTALL_SRC="$INSTALL_ROOT/src"
 INSTALL_ICU="$WORKSPACE/icu-installation"
