@@ -2,6 +2,8 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
+# Installing into ramdisc is not possible because of 'nodev' mount flag
+# Prefer temporary SSD location
 SCHROOT_ROOT="/mnt/chroot-trusty32"
 
 debootstrap --arch i386 trusty "$SCHROOT_ROOT" "http://de.archive.ubuntu.com/ubuntu/"
