@@ -60,6 +60,7 @@ for MODE in debug release; do
             -no-sql-sqlite2 \
             -$MODE \
             -qt-xcb \
+            -cups \
             -icu \
             -I "$INSTALL_ICU/include" \
             -L "$INSTALL_ICU/lib" \
