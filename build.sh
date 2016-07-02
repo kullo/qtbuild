@@ -87,6 +87,7 @@ for MODE in debug release; do
             -shared
         time CCACHE_DISABLE=1 make -j "$CORES"
         make install
+        cp qtbase/config.summary "$PREFIX"
     )
 
     # Copy ICU libs into Qt installation
