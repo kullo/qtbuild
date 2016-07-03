@@ -21,7 +21,7 @@ if [ ! -w "$INSTALL_ROOT" ] ; then
 fi
 
 if ! mkdir -p "$(dirname "$OUTFILE")"; then
-    echo "Could not create parent direcory for outfile '$OUTFILE'"
+    echo "Could not create parent directory for outfile '$OUTFILE'"
     exit 1
 fi
 
@@ -117,6 +117,7 @@ time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
 # Export
 (
     cd "$INSTALL_PARENT"
+    echo "Exporting to $OUTFILE ..."
     time tar -cv \
         --use-compress-program="$GZIP_COMPRESSOR" \
         -f "$OUTFILE" \
