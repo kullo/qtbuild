@@ -36,4 +36,5 @@ schroot -c trusty32 --directory / -- sudo apt-get autoremove -y
 schroot -c trusty32 --directory / -- sudo apt-get install -y git wget
 schroot -c trusty32 --directory / -- sudo mkdir -p /run/shm/workspace
 schroot -c trusty32 --directory / -- sudo chown kullo:kullo /run/shm/workspace
-schroot -c trusty32 --directory /run/shm/workspace -- git clone "https://github.com/webmaster128/qtbuild.git"
+schroot -c trusty32 --directory /run/shm/workspace -- sudo git clone "https://github.com/webmaster128/qtbuild.git"
+schroot -c trusty32 --directory /run/shm/workspace -- sudo chown -R kullo:kullo qtbuild
