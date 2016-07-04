@@ -11,5 +11,5 @@ else
     exit 1
 fi
 
-WORKSPACE="/run/shm/workspace"
+WORKSPACE="$HOME/workspace"
 OUTDIR="$WORKSPACE/out"
