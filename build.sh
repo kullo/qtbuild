@@ -38,6 +38,14 @@ rm -rf "${INSTALL_ROOT:?}/"*
     make install
 )
 
+# Install Qt sources
+if ! mkdir -p "$INSTALL_SRC"; then
+    echo "Could not create source directory '$INSTALL_SRC'"
+    exit 1
+fi
+echo "Copying Qt sources to '$INSTALL_SRC' ..."
+time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
+
 # Build Qt
 for MODE in debug release; do
     PREFIX="$INSTALL_ROOT/$MODE"
@@ -48,7 +56,7 @@ for MODE in debug release; do
     (
         export LD_LIBRARY_PATH="$INSTALL_ICU/lib"
         cd "$BUILDDIR"
-        "$QT_SOURCEDIR/configure" \
+        "$INSTALL_SRC/configure" \
             -opensource \
             -confirm-license \
             -nomake examples \
@@ -105,14 +113,6 @@ for MODE in debug release; do
         ln -s libicuuc.so.$MAJOR.$MINOR   libicuuc.so.$MAJOR
     )
 done
-
-# Install Qt sources
-if ! mkdir -p "$INSTALL_SRC"; then
-    echo "Could not create source directory '$INSTALL_SRC'"
-    exit 1
-fi
-echo "Copying Qt sources to '$INSTALL_SRC' ..."
-time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
 
 # Export
 (
