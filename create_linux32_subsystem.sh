@@ -2,6 +2,8 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
+source "./_includes.sh"
+
 # Installing into ramdisc is not possible because of 'nodev' mount flag
 # Prefer temporary SSD location
 SCHROOT_ROOT="/mnt/chroot-trusty32"
@@ -34,7 +36,7 @@ schroot -c trusty32 --directory / -- sudo apt-get update
 schroot -c trusty32 --directory / -- sudo apt-get upgrade -y
 schroot -c trusty32 --directory / -- sudo apt-get autoremove -y
 schroot -c trusty32 --directory / -- sudo apt-get install -y git wget
-schroot -c trusty32 --directory / -- sudo mkdir -p /home/kullo/workspace
-schroot -c trusty32 --directory / -- sudo chown kullo:kullo /home/kullo/workspace
-schroot -c trusty32 --directory /run/shm/workspace -- sudo git clone "https://github.com/webmaster128/qtbuild.git"
-schroot -c trusty32 --directory /run/shm/workspace -- sudo chown -R kullo:kullo qtbuild
+schroot -c trusty32 --directory / -- sudo mkdir -p "$WORKSPACE"
+schroot -c trusty32 --directory / -- sudo chown kullo:kullo "$WORKSPACE"
+schroot -c trusty32 --directory "$WORKSPACE" -- sudo git clone "https://github.com/webmaster128/qtbuild.git"
+schroot -c trusty32 --directory "$WORKSPACE" -- sudo chown -R kullo:kullo qtbuild

@@ -11,5 +11,6 @@ else
     exit 1
 fi
 
-WORKSPACE="$HOME/workspace"
+# Do not use anything in $HOME because linux64 and linux32 share the same home directory
+WORKSPACE="/mnt/workspace"
 OUTDIR="$WORKSPACE/out"
