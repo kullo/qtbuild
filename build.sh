@@ -64,15 +64,15 @@ for MODE in debug release; do
             -prefix "$PREFIX" \
             -c++std c++11 \
             -no-openssl \
+            -qt-xcb \
+            -gtkstyle \
             -no-sql-sqlite \
             -no-sql-sqlite2 \
             -$MODE \
-            -qt-xcb \
             -cups \
             -icu \
             -I "$INSTALL_ICU/include" \
             -L "$INSTALL_ICU/lib" \
-            -gtkstyle \
             -skip qt3d \
             -skip qtactiveqt \
             -skip qtandroidextras \
