@@ -63,6 +63,10 @@ for MODE in debug release; do
             -platform linux-clang-libc++ \
             -prefix "$PREFIX" \
             -c++std c++11 \
+            -qt-zlib \
+            -no-mtdev \
+            -qt-libpng \
+            -qt-libjpeg \
             -no-openssl \
             -qt-xcb \
             -gtkstyle \
