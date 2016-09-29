@@ -2,7 +2,7 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
-QT_VERSION="5.6.1-1"
+QT_VERSION="5.6.2"
 QT_SOURCEDIR=$(realpath "$1")
 
 source "./_includes.sh"
