@@ -41,7 +41,7 @@ schroot -c trusty32 --directory / -- sudo apt-get install -y git wget
 schroot -c trusty32 --directory / -- sudo mkdir -p "$WORKSPACE"
 schroot -c trusty32 --directory / -- sudo chown kullo:kullo "$WORKSPACE"
 schroot -c trusty32 --directory "$WORKSPACE" -- sudo git clone "https://github.com/webmaster128/qtbuild.git"
-schroot -c trusty32 --directory "$WORKSPACE" -- sudo git checkout "$CURRENT_BRANCH"
-schroot -c trusty32 --directory "$WORKSPACE" -- sudo chown -R kullo:kullo qtbuild
+schroot -c trusty32 --directory "$WORKSPACE/qtbuild" -- sudo git checkout "$CURRENT_BRANCH"
+schroot -c trusty32 --directory "$WORKSPACE/qtbuild" -- sudo chown -R kullo:kullo .
 schroot -c trusty32 --directory "$WORKSPACE/qtbuild" -- sudo ./install_packages.sh
 schroot -c trusty32 --directory "$WORKSPACE/qtbuild" -- sudo ./download_qt.sh
