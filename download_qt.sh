@@ -4,10 +4,9 @@ which shellcheck > /dev/null && shellcheck "$0"
 
 source "./_includes.sh"
 
-# http://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.gz.mirrorlist
-URL="http://download.qt.io/official_releases/qt/5.6/5.6.1-1/single/qt-everywhere-opensource-src-5.6.1-1.tar.gz"
-LOCAL_FILE="qt-everywhere-opensource-src-5.6.1-1.tar.gz"
-SHA1_HASH="1ece129e6230f65fde714203e6fabac743f9b323"
+URL="http://download.qt.io/snapshots/qt/5.6/5.6.2/latest_src/qt-everywhere-opensource-src-5.6.2.tar.gz"
+LOCAL_FILE="qt-everywhere-opensource-src-5.6.2.tar.gz"
+SHA1_HASH=""
 
 (
     cd "$WORKSPACE"
