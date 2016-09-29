@@ -9,12 +9,12 @@ apt-get install -y \
   libcups2-dev \
   clang-3.6 libc++-dev
 
-# Setup compiler:
-#   sudo update-alternatives --install /usr/bin/cc      cc      /usr/bin/clang-3.6   100
-#   sudo update-alternatives --install /usr/bin/c++     c++     /usr/bin/clang++-3.6 100
-#   sudo update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.6   100
-#   sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
-#   sudo update-alternatives --config clang
-#   sudo update-alternatives --config clang++
-#   sudo update-alternatives --config cc
-#   sudo update-alternatives --config c++
+update-alternatives --install /usr/bin/cc      cc      /usr/bin/clang-3.6   100
+update-alternatives --install /usr/bin/c++     c++     /usr/bin/clang++-3.6 100
+update-alternatives --install /usr/bin/clang   clang   /usr/bin/clang-3.6   100
+update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
+
+update-alternatives --set cc      /usr/bin/clang-3.6
+update-alternatives --set c++     /usr/bin/clang++-3.6
+update-alternatives --set clang   /usr/bin/clang-3.6
+update-alternatives --set clang++ /usr/bin/clang++-3.6
