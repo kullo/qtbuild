@@ -12,7 +12,10 @@ SHA1_HASH="1ece129e6230f65fde714203e6fabac743f9b323"
 (
     cd "$WORKSPACE"
     wget -O "$LOCAL_FILE" "$URL"
-    sha1sum "$LOCAL_FILE" | fgrep "$SHA1_HASH"
+    if [ "$SHA1_HASH" != "" ]; then
+        echo "Checking checksum ..."
+        sha1sum "$LOCAL_FILE" | fgrep "$SHA1_HASH"
+    fi
     echo "Extracting $LOCAL_FILE ..."
     tar -x \
         --use-compress-program="$GZIP_COMPRESSOR" \
