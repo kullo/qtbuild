@@ -6,7 +6,7 @@ apt-get update
 apt-get upgrade -y
 
 apt-get install -y \
-  joe htop git \
+  debootstrap joe htop git \
   realpath pigz wget \
   libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk2.0-dev \
   libcups2-dev \
