@@ -2,6 +2,9 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && shellcheck "$0"
 
+apt-get update
+apt-get upgrade -y
+
 apt-get install -y \
   joe htop git \
   realpath pigz wget \
