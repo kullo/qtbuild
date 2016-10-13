@@ -16,7 +16,7 @@ debootstrap --arch i386 trusty "$SCHROOT_ROOT" "http://de.archive.ubuntu.com/ubu
     echo "directory=$SCHROOT_ROOT"
     echo "users=kullo"
     echo "type=directory"
-    echo "profile=desktop"
+    echo "profile=default"
     echo "personality=linux32"
     echo "preserve-environment=true"
 ) > /etc/schroot/chroot.d/trusty32.conf
