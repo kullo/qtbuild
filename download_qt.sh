@@ -4,9 +4,9 @@ which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
 source "./_includes.sh"
 
-URL="https://download.qt.io/official_releases/qt/5.6/5.6.2/single/qt-everywhere-opensource-src-5.6.2.tar.gz"
-LOCAL_FILE="qt-everywhere-opensource-src-5.6.2.tar.gz"
-SHA1_HASH="4385b53f78665ac340ea2a709ebecf1e776efdc2"
+URL="http://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
+LOCAL_FILE="qt-everywhere-opensource-src-5.9.1.tar.xz"
+SHA1_HASH="8b9900cece0a18cf23d53a42379a628a1c1330ae"
 
 (
     cd "$WORKSPACE"
@@ -16,8 +16,6 @@ SHA1_HASH="4385b53f78665ac340ea2a709ebecf1e776efdc2"
         sha1sum "$LOCAL_FILE" | fgrep "$SHA1_HASH"
     fi
     echo "Extracting $LOCAL_FILE ..."
-    tar -x \
-        --use-compress-program="$GZIP_COMPRESSOR" \
-        -f "$LOCAL_FILE"
+    tar xf "$LOCAL_FILE"
     rm "$LOCAL_FILE"
 )
