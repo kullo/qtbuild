@@ -1,6 +1,6 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail
-which shellcheck > /dev/null && shellcheck "$0"
+which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
 apt-get update
 apt-get upgrade -y
