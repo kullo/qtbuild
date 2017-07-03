@@ -60,15 +60,18 @@ for MODE in debug release; do
             -platform linux-clang-libc++ \
             -prefix "$PREFIX" \
             -c++std c++11 \
-            -qt-zlib \
             -no-mtdev \
-            -qt-libpng \
-            -qt-libjpeg \
             -no-openssl \
-            -qt-xcb \
-            -gtkstyle \
             -no-sql-sqlite \
             -no-sql-sqlite2 \
+            -no-gstreamer \
+            --zlib=qt \
+            --libpng=qt \
+            --libjpeg=qt \
+            --xcb=qt \
+            -gtk \
+            -pulseaudio \
+            -alsa \
             -$MODE \
             -cups \
             -icu \
