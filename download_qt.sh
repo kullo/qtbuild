@@ -8,8 +8,9 @@ URL="http://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-o
 LOCAL_FILE="qt-everywhere-opensource-src-5.9.1.tar.xz"
 SHA1_HASH="8b9900cece0a18cf23d53a42379a628a1c1330ae"
 
+mkdir -p "$DOWNLOADS_DIR"
 (
-    cd "$WORKSPACE"
+    cd "$DOWNLOADS_DIR"
     wget -O "$LOCAL_FILE" "$URL"
     if [ "$SHA1_HASH" != "" ]; then
         echo "Checking checksum ..."

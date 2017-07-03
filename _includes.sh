@@ -11,6 +11,7 @@ else
     exit 1
 fi
 
+DOWNLOADS_DIR="$HOME/Downloads"
 # Do not use anything in $HOME because linux64 and linux32 share the same home directory
 WORKSPACE="/run/shm/workspace"
 OUTDIR="$WORKSPACE/out"
