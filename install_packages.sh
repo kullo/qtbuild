@@ -8,7 +8,8 @@ apt-get upgrade -y
 apt-get install -y \
   joe htop git \
   realpath pigz wget \
-  libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk2.0-dev \
+  libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk-3-dev \
+  libasound2-dev libpulse-dev \
   libcups2-dev \
   clang-3.6 libc++-dev \
   debootstrap schroot
