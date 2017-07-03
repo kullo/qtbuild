@@ -12,7 +12,7 @@ else
 fi
 
 # Do not use anything in $HOME because linux64 and linux32 share the same home directory
-WORKSPACE="/mnt/workspace"
+WORKSPACE="/run/shm/workspace"
 OUTDIR="$WORKSPACE/out"
 
 INSTALL_PARENT="/opt"
