@@ -131,5 +131,5 @@ done
 # Next step
 echo "#####################"
 echo "# Use this command to download from build machine:"
-echo "# scp $USER@$(hostname).cloudapp.net:$OUTFILE ."
+echo "# scp $USER@$PRIMARY_IP:$OUTFILE ."
 echo "#####################"

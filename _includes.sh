@@ -10,6 +10,7 @@ else
     echo "Unsupported platform: '$PLATFORM'."
     exit 1
 fi
+PRIMARY_IP=$(ifconfig eth0 | sed -En 's/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 
 DOWNLOADS_DIR="$HOME/Downloads"
 # Do not use anything in $HOME because linux64 and linux32 share the same home directory
