@@ -68,15 +68,22 @@ for MODE in debug release; do
             -skip qtandroidextras \
             -skip qtcanvas3d \
             -skip qtconnectivity \
+            -skip qtgamepad \
             -skip qtlocation \
             -skip qtmacextras \
+            -skip qtnetworkauth \
             -skip qtscript \
+            -skip qtscxml \
             -skip qtsensors \
             -skip qtserialbus \
             -skip qtserialport \
+            -skip qtspeech \
+            -skip qttranslations \
+            -skip qtvirtualkeyboard \
             -skip qtwayland \
             -skip qtwebchannel \
             -skip qtwebengine \
+            -skip qtwebkit \
             -skip qtwebsockets \
             -skip qtwebview \
             -skip qtwinextras \
