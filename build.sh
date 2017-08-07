@@ -10,7 +10,6 @@ source "./_includes.sh"
 BUILDDIR="$WORKSPACE/tmp/qt-build-$USER"
 OUTFILE="$OUTDIR/kullo_qt${QT_VERSION}_${OS_NAME}.tar.gz"
 INSTALL_SRC="$INSTALL_ROOT/src"
-INSTALL_ICU="$WORKSPACE/icu-installation"
 
 if [ ! -w "$INSTALL_ROOT" ] ; then
     echo "Can not write to directory '$INSTALL_ROOT'"
@@ -25,15 +24,6 @@ fi
 # Clear Qt installation dir
 echo "Clearing Qt installation dir ..."
 rm -rf "${INSTALL_ROOT:?}/"*
-
-# Build ICU
-(
-    echo "Building ICU ..."
-    cd icu/source
-    CXXFLAGS="-stdlib=libc++" ./configure --prefix="$INSTALL_ICU"
-    make -j "$CORES"
-    make install
-)
 
 # Install Qt sources
 if ! mkdir -p "$INSTALL_SRC"; then
@@ -51,7 +41,6 @@ for MODE in debug release; do
     mkdir -p "$BUILDDIR"
 
     (
-        export LD_LIBRARY_PATH="$INSTALL_ICU/lib"
         cd "$BUILDDIR"
         "$INSTALL_SRC/configure" \
             -opensource \
@@ -74,9 +63,6 @@ for MODE in debug release; do
             -alsa \
             -$MODE \
             -cups \
-            -icu \
-            -I "$INSTALL_ICU/include" \
-            -L "$INSTALL_ICU/lib" \
             -skip qt3d \
             -skip qtactiveqt \
             -skip qtandroidextras \
@@ -100,21 +86,6 @@ for MODE in debug release; do
         time CCACHE_DISABLE=1 make -j "$CORES"
         make install
         cp config.summary "$PREFIX"
-    )
-
-    # Copy ICU libs into Qt installation
-    (
-        DST="$PREFIX/lib"
-        echo "Copy ICU libs into Qt installation '$DST' ..."
-        cd "$DST"
-        MAJOR=57
-        MINOR=1
-        cp "$INSTALL_ICU/lib/libicudata.so.$MAJOR.$MINOR" .
-        cp "$INSTALL_ICU/lib/libicui18n.so.$MAJOR.$MINOR" .
-        cp "$INSTALL_ICU/lib/libicuuc.so.$MAJOR.$MINOR"   .
-        ln -s libicudata.so.$MAJOR.$MINOR libicudata.so.$MAJOR
-        ln -s libicui18n.so.$MAJOR.$MINOR libicui18n.so.$MAJOR
-        ln -s libicuuc.so.$MAJOR.$MINOR   libicuuc.so.$MAJOR
     )
 done
 
