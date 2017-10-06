@@ -33,6 +33,9 @@ echo "Copying Qt sources to '$INSTALL_SRC' ..."
 time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
 
 # Build Qt
+#
+# Modules to be skipped are top-level directories in the source tree:
+# http://code.qt.io/cgit/qt/qt5.git/tree/
 for MODE in debug release; do
     PREFIX="$INSTALL_ROOT/$MODE"
 
@@ -82,7 +85,6 @@ for MODE in debug release; do
             -skip qtwayland \
             -skip qtwebchannel \
             -skip qtwebengine \
-            -skip qtwebkit \
             -skip qtwebsockets \
             -skip qtwebview \
             -skip qtwinextras \
