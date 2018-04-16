@@ -10,7 +10,7 @@ mkdir -p "$DOWNLOADS_DIR"
     wget -O "$QT_LOCAL_FILE" "$QT_URL"
     if [ "$QT_MD5_HASH" != "" ]; then
         echo "Checking checksum ..."
-        md5sum "$QT_LOCAL_FILE" | fgrep "$QT_MD5_HASH"
+        md5sum "$QT_LOCAL_FILE" | grep -F "$QT_MD5_HASH"
     fi
     echo "Extracting $QT_LOCAL_FILE ..."
     tar xf "$QT_LOCAL_FILE"
