@@ -4,9 +4,9 @@ which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
 source "./_includes.sh"
 
-URL="http://download.qt.io/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
-LOCAL_FILE="qt-everywhere-opensource-src-5.9.2.tar.xz"
-MD5_HASH="738d1b98106e1bd39f00cc228beb522a"
+URL="http://download.qt.io/official_releases/qt/5.9/5.9.5/single/qt-everywhere-opensource-src-5.9.5.tar.xz"
+LOCAL_FILE="qt-everywhere-opensource-src-5.9.5.tar.xz"
+MD5_HASH="0e6eaa2d118f9854345c2debb12e8536"
 
 mkdir -p "$DOWNLOADS_DIR"
 (
