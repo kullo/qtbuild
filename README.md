@@ -5,7 +5,7 @@ Qt build scrips
 
  * Create and cd to `/mnt/workspace`
  * `apt-get install git`
- * Clone this repository and cd qt `qtbuild`
+ * `git clone https://github.com/kullo/qtbuild && cd qtbuild`
  * Run `./install_packages.sh`
  * Run `./download_qt.sh`
  * Run `./build.sh ~/Downloads/qt-everywhere-opensource-src-*/`
