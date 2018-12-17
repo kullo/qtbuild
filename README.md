@@ -8,6 +8,7 @@ Qt build scrips
  * `git clone https://github.com/kullo/qtbuild && cd qtbuild`
  * Run `./install_packages.sh`
  * Run `./download_qt.sh`
+ * `mkdir -p /opt/qt-clang-libc++`
  * Run `./build.sh ~/Downloads/qt-everywhere-opensource-src-*/`
 
 ## Linux32 subsystem
