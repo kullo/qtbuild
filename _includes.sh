@@ -23,6 +23,6 @@ INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
 
 QT_VERSION="5.12.4"
 QT_URL="http://download.qt.io/official_releases/qt/5.12/5.12.4/single/qt-everywhere-src-5.12.4.tar.xz"
-QT_MD5_HASH="dda95b0239d13c5276834177af3a8588"
+QT_SHA256_HASH="85da5e0ee498759990180d5b8192efaa6060a313c5018b772f57d446bdd425e1"
 
-QT_LOCAL_FILE="qt-source-$QT_VERSION.tar.xz"
+QT_LOCAL_FILE="qt-source-$QT_VERSION-download.tar.xz"
