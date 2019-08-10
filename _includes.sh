@@ -21,7 +21,8 @@ INSTALL_PARENT="/opt"
 INSTALL_FOLDERNAME="qt-clang-libc++"
 INSTALL_ROOT="$INSTALL_PARENT/$INSTALL_FOLDERNAME"
 
-QT_VERSION="5.9.7"
-QT_URL="http://download.qt.io/official_releases/qt/5.9/5.9.7/single/qt-everywhere-opensource-src-5.9.7.tar.xz"
-QT_LOCAL_FILE="qt-everywhere-opensource-src-5.9.7.tar.xz"
-QT_MD5_HASH="70e617aeb1f9bbf84a12b8cf09b01ece"
+QT_VERSION="5.12.4"
+QT_URL="http://download.qt.io/official_releases/qt/5.12/5.12.4/single/qt-everywhere-src-5.12.4.tar.xz"
+QT_MD5_HASH="dda95b0239d13c5276834177af3a8588"
+
+QT_LOCAL_FILE="qt-source-$QT_VERSION.tar.xz"
