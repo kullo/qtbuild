@@ -10,7 +10,7 @@ mkdir -p "$DOWNLOADS_DIR"
     wget -O "$QT_LOCAL_FILE" "$QT_URL"
 
     echo "Checking checksum ..."
-    sha256sum "$QT_LOCAL_FILE" | grep -F "$QT_MD5_HASH"
+    sha256sum "$QT_LOCAL_FILE" | grep -F "$QT_SHA256_HASH"
 
     echo "Extracting $QT_LOCAL_FILE ..."
     tar xf "$QT_LOCAL_FILE"
