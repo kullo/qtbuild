@@ -8,9 +8,10 @@ apt upgrade -y
 apt install -y \
   joe htop git \
   pigz wget rsync \
-  libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libgl1-mesa-dev libgtk-3-dev \
+  libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libgl1-mesa-dev libgtk-3-dev \
   libasound2-dev libpulse-dev \
   libcups2-dev \
+  libxcb1-dev libx11-xcb-dev libxcb-glx0-dev libxkbcommon-x11-dev \
   clang libc++-dev libc++abi-dev \
   debootstrap schroot
 

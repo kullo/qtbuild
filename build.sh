@@ -60,7 +60,9 @@ for MODE in debug release; do
             --zlib=qt \
             --libpng=qt \
             --libjpeg=qt \
-            --xcb=qt \
+            -xcb \
+            -xcb-xinput \
+            -xkbcommon \
             -gtk \
             -pulseaudio \
             -alsa \
