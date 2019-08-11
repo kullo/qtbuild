@@ -4,7 +4,7 @@ Qt build scrips
 ## Basic usage
 
  * Create and cd to `/mnt/workspace`
- * `apt update && apt install git`
+ * `apt update && apt install git -y`
  * `git clone https://github.com/kullo/qtbuild && cd qtbuild`
  * Run `./install_packages.sh`
  * Run `./download_qt.sh`
