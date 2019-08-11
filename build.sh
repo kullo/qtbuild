@@ -30,7 +30,7 @@ if ! mkdir -p "$INSTALL_SRC"; then
     exit 1
 fi
 echo "Copying Qt sources to '$INSTALL_SRC' ..."
-time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
+time rsync --archive "$QT_SOURCEDIR/" "$INSTALL_SRC"
 
 # Build Qt
 #
