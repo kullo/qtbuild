@@ -97,9 +97,11 @@ for MODE in debug release; do
             -skip qtx11extras \
             -skip qtxmlpatterns \
             -shared
+        cp config.summary "$PREFIX"
+
+        # Build
         time CCACHE_DISABLE=1 make -j "$CORES"
         make install
-        cp config.summary "$PREFIX"
     )
 done
 
