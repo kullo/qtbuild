@@ -69,11 +69,16 @@ for MODE in debug release; do
             -skip qtactiveqt \
             -skip qtandroidextras \
             -skip qtcanvas3d \
+            -skip qtcharts \
             -skip qtconnectivity \
+            -skip qtdatavis3d \
+            -skip qtdoc \
             -skip qtgamepad \
             -skip qtlocation \
             -skip qtmacextras \
             -skip qtnetworkauth \
+            -skip qtpurchasing \
+            -skip qtremoteobjects \
             -skip qtscript \
             -skip qtscxml \
             -skip qtsensors \
@@ -85,6 +90,7 @@ for MODE in debug release; do
             -skip qtwayland \
             -skip qtwebchannel \
             -skip qtwebengine \
+            -skip qtwebglplugin \
             -skip qtwebsockets \
             -skip qtwebview \
             -skip qtwinextras \
