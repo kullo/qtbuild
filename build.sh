@@ -1,6 +1,6 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail
-which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
+command -v shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
 QT_SOURCEDIR=$(realpath "$1")
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail
-which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
+command -v shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
 source "./_includes.sh"
 
@@ -23,7 +23,7 @@ GROUP="$USER" # Assume there is a group called like the user
     echo "personality=linux32"
     echo "preserve-environment=true"
 ) > /etc/schroot/chroot.d/trusty32.conf
- 
+
 
 # (
 #     echo "# Created by $0 on $(date)"
