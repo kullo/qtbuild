@@ -38,6 +38,7 @@ time rsync --archive --delete "$QT_SOURCEDIR/" "$INSTALL_SRC"
 # http://code.qt.io/cgit/qt/qt5.git/tree/
 for MODE in debug release; do
     PREFIX="$INSTALL_ROOT/$MODE"
+    mkdir -p "$PREFIX"
 
     rm -rf "$BUILDDIR"
     mkdir -p "$BUILDDIR"
