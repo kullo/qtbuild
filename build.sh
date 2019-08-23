@@ -52,6 +52,7 @@ for MODE in debug release; do
             -platform linux-clang-libc++ \
             -prefix "$PREFIX" \
             -c++std c++11 \
+            -no-icu \
             -no-mtdev \
             -no-openssl \
             -no-sql-sqlite \
